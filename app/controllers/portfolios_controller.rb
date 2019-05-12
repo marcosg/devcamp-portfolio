@@ -8,6 +8,10 @@ class PortfoliosController < ApplicationController
     @portfolio_item = Portfolio.new
   end
 
+  def angular
+    @angular_portfolio_items = Portfolio.angular
+  end
+
   def create
     @portfolio_item = Portfolio.new(portfolio_params)
 
