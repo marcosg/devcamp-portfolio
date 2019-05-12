@@ -15,6 +15,15 @@
     <%= form.text_area :body %>
   </div>
 
+  <ul>
+    <%= form.fields_for :technologies do |tf| %>
+      <li>
+        <%= tf.label :name %>
+        <%= tf.text_field :name %>
+      </li>
+    <% end %>
+  </ul>
+
   <div class="actions">
     <%= form.submit %>
   </div>
