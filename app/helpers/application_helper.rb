@@ -7,4 +7,12 @@ module ApplicationHelper
       (link_to 'Login', new_user_session_path)
     end
   end
+
+  def source_helper
+    if !session[:source].blank?
+      greeting = "Thanks for visiting me from #{session[:source]}"
+      tag.p greeting, class: 'source-greeting'
+    end
+  end
+
 end
