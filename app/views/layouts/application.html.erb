@@ -21,5 +21,10 @@
     <% end %>
 
     <%= yield %>
+
+    <% if !session[:source].blank? %>
+      <hr>
+      Thanks for visiting me from <%= session[:source] %>
+    <% end %>
   </body>
 </html>
