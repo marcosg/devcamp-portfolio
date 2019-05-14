@@ -14,16 +14,20 @@
   </head>
 
   <body>
-    <%= render 'shared/nav', location: 'top' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <main role="main" class="inner cover text-center">
+        <%= render 'shared/application_nav'%>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
 
-    <%= login_helper %>
+        <%= login_helper %>
 
-    <%= yield %>
+        <%= yield %>
 
-    <%= copywrite_generator %>
+        <%= copywrite_generator %>
 
-    <%= source_helper %>
+        <%= source_helper %>
+      </main>
+    </div>
   </body>
 </html>
