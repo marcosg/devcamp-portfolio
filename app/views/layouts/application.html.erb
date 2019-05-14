@@ -13,21 +13,18 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="text-center">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <main role="main" class="inner cover text-center">
-        <%= render 'shared/application_nav'%>
+      <%= render 'shared/application_nav'%>
+      <main role="main" class="inner cover">
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
 
-        <%= login_helper %>
-
         <%= yield %>
-
-        <%= copywrite_generator %>
 
         <%= source_helper %>
       </main>
+      <%= render 'shared/application_footer' %>
     </div>
   </body>
 </html>
