@@ -15,4 +15,8 @@ module ApplicationHelper
     end
   end
 
+  def copywrite_generator
+    MgaligViewTool::Renderer.copywrite 'Marcos Galigarcia', 'All rights reserved'
+  end
+
 end
