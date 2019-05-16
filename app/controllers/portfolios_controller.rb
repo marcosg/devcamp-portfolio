@@ -6,7 +6,7 @@ class PortfoliosController < ApplicationController
   before_action :hide_masthead, only: [:new, :edit]
 
   def index
-    @portfolio_items = Portfolio.all
+    @portfolio_items = Portfolio.by_position
   end
 
   def new
