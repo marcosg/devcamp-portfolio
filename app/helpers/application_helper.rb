@@ -19,4 +19,31 @@ module ApplicationHelper
     MgaligViewTool::Renderer.copywrite 'Marcos Galigarcia', 'All rights reserved'
   end
 
+  def nav_items
+    [
+      { title: 'Home'     ,     url: root_path       },
+      { title: 'About Me' ,     url: about_me_path   },
+      { title: 'Contact'  ,     url: contact_path    },
+      { title: 'Blog'     ,     url: blogs_path      },
+      { title: 'Portfolio',     url: portfolios_path }
+    ]
+  end
+
+  def nav_helper tag_type, style
+
+    nav_links = ''
+    nav_items.each do |item|
+      nav_links <<
+          "<#{tag_type}>" +
+            link_to(item[:title], item[:url], class: style + active?(item[:url])) +
+          "</#{tag_type}>"
+    end
+
+    nav_links.html_safe
+  end
+
+  def active?(path)
+    current_page?(path) ? ' active' : ''
+  end
+
 end
