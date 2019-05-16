@@ -1,31 +1,37 @@
 <%= form_with(model: portfolio_item, local: true) do |form| %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :title %>
+        <%= form.text_field :title, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+      <div class="form-group">
+        <%= form.label :subtitle %>
+        <%= form.text_area :subtitle, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :body %>
+        <%= form.text_area :body, class: 'form-control', rows: 13 %>
+      </div>
+    </div>
+
   </div>
 
-  <div class="field">
-    <%= form.label :subtitle %>
-    <%= form.text_area :subtitle %>
-  </div>
-
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
-
-  <ul>
+  <hr>
+  <div class="container col-md-4 ml-3">
+    <h2>Technologies Used</h2>
     <%= form.fields_for :technologies do |tf| %>
-      <li>
+      <div class="form-group">
         <%= tf.label :name %>
-        <%= tf.text_field :name %>
-      </li>
+        <%= tf.text_field :name, class: 'form-control' %>
+      </div>
     <% end %>
-  </ul>
+  </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary btn-block' %>
   </div>
 <% end %>
-<%= link_to 'Back', portfolios_path %>

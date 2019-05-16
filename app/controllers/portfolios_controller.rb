@@ -2,8 +2,9 @@ class PortfoliosController < ApplicationController
   layout 'portfolio'
   access all: [:show, :index, :angular], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
 
-
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
+  before_action :hide_masthead, only: [:new, :edit]
+
   def index
     @portfolio_items = Portfolio.all
   end
@@ -51,6 +52,10 @@ class PortfoliosController < ApplicationController
   end
 
   private
+
+  def hide_masthead
+    @hide_masthead = true
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_portfolio
