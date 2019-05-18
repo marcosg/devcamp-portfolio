@@ -24,12 +24,13 @@
   <div class="container col-md-4 ml-3">
     <h2>Technologies Used</h2>
     <%= form.fields_for :technologies do |tf| %>
-      <div class="form-group">
-        <%= tf.label :name %>
-        <%= tf.text_field :name, class: 'form-control' %>
-      </div>
+      <%= render 'technology_fields', f: tf %>
     <% end %>
+    <div class="div">
+      <%= link_to_add_association 'Add Technology', form, :technologies %>
+    </div>
   </div>
+
 
   <div class="actions">
     <%= form.submit class: 'btn btn-primary btn-block' %>
