@@ -1,4 +1,8 @@
 <%= form_with(model: portfolio_item, local: true) do |form| %>
+  <% if portfolio_item.errors.any? %>
+    <%= alert_generator portfolio_item.errors.full_messages, :error %>
+  <% end %>
+
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">

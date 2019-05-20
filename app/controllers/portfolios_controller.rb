@@ -29,7 +29,7 @@ class PortfoliosController < ApplicationController
 
     respond_to do |format|
       if @portfolio_item.save
-        format.html { redirect_to portfolios_path, notice: 'Portfolio was successfully created.' }
+        format.html { redirect_to portfolios_path, success: 'Portfolio was created.' }
       else
         format.html { render :new }
       end
@@ -41,7 +41,7 @@ class PortfoliosController < ApplicationController
   def update
     respond_to do |format|
       if @portfolio_item.update(portfolio_params)
-        format.html { redirect_to portfolios_path, notice: 'Portfolio was successfully updated.' }
+        format.html { redirect_to portfolios_path, success: 'Portfolio was updated.' }
       else
         format.html { render :edit }
       end
@@ -53,7 +53,7 @@ class PortfoliosController < ApplicationController
   def destroy
     @portfolio_item.destroy
     respond_to do |format|
-      format.html {redirect_to portfolios_path, notice: 'Portfolio was removed'}
+      format.html {redirect_to portfolios_path, success: 'Portfolio was removed'}
     end
   end
 

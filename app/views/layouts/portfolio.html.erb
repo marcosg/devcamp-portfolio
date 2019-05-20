@@ -17,11 +17,9 @@
     <%= render 'shared/portfolio_nav' %>
     <%= render 'shared/portfolio_masthead' unless @hide_masthead%>
 
-
     <%= yield %>
 
     <%= render 'shared/portfolio_footer' %>
-
-
+    <%= alerts %>
   </body>
 </html>

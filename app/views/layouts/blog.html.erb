@@ -20,11 +20,13 @@
         <div class="row">
 
           <%= yield %>
+
           <%= render 'shared/blog_sidebar' %>
           <%= source_helper %>
         </div><!-- /.row -->
       </main>
     </div>
     <%= render 'shared/blog_footer' %>
+    <%= alerts %>
   </body>
 </html>

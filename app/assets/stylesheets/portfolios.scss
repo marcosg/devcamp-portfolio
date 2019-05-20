@@ -1,6 +1,8 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 @import "jquery-ui";
+@import "gritter";
+
 
 .jumbotron {
   padding-top: 3rem;
