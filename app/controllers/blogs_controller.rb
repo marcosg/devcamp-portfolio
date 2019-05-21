@@ -79,6 +79,9 @@ class BlogsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
       @blog = Blog.friendly.find(params[:id])
+      unless logged_in?(:site_admin) || @blog.published?
+        redirect_to(blogs_path, warning: 'You are not authorzed to access that page')
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
