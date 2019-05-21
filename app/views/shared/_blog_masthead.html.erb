@@ -2,7 +2,12 @@
   <div class="row flex-nowrap justify-content-between align-items-center">
     <div class="col-4 pt-1">
       <a class="text-muted" href="#">Subscribe</a>
-      <%= link_to 'Write a New Blog', new_blog_path if logged_in?(:site_admin)%>
+      <span>
+        <%= link_to 'Write a New Blog', new_blog_path if logged_in?(:site_admin)%>
+      </span>
+      <span>
+        <%= link_to 'Topics', topics_path%>
+      </span>
 
     </div>
     <div class="col-4 text-center">
