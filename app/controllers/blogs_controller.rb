@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status ]
+  before_action :get_topics, only: [:edit, :update, :new]
   layout 'blog'
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :toggle_status]}, site_admin: :all
 
@@ -76,7 +77,10 @@ class BlogsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    def get_topics
+      @topics = Topic.all
+    end
+
     def set_blog
       @blog = Blog.friendly.find(params[:id])
       unless logged_in?(:site_admin) || @blog.published?
@@ -86,6 +90,6 @@ class BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit(:title, :body)
+      params.require(:blog).permit(:title, :body, :topic_id)
     end
 end
